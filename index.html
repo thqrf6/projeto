@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crônicas de Eldoria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="leaderboard">
+        <h3>🏆 Maiores Lendas 🏆</h3>
+        <ol id="leaderboard-list"></ol>
+    </div>
+
+    <div id="start-screen" class="screen active">
+        <div class="container">
+            <h1>Crônicas de Eldoria</h1>
+            <p class="version">Versão: 0.5.0 Beta</p>
+            <h2>Instruções</h2>
+            <p>
+                Bem-vindo, aventureiro! Crie seu herói, explore um mundo vasto, enfrente perigos e forje sua própria lenda.
+            </p>
+            <button id="start-game-btn">Nova Aventura</button>
+            <button id="load-game-btn" style="display: none;">Continuar Aventura</button>
+        </div>
+    </div>
+
+    <div id="character-creation-screen" class="screen">
+        <div class="container">
+            <h2>Crie seu Herói</h2>
+            <form id="character-form">
+                <div class="form-group">
+                    <label for="player-name">Nome do Personagem:</label>
+                    <input type="text" id="player-name" required placeholder="Ex: Aragon">
+                </div>
+                <div class="form-group">
+                    <label for="player-race">Escolha sua Raça:</label>
+                    <select id="player-race">
+                        <option value="Humano">Humano</option>
+                        <option value="Elfo">Elfo</option>
+                        <option value="Orc">Orc</option>
+                        <option value="Goblin">Goblin</option>
+                        <option value="Demônio">Demônio</option>
+                        <option value="Anjo">Anjo</option>
+                        <option value="Espírito">Espírito</option>
+                        <option value="Sombra">Sombra</option>
+                        <option value="Serafim">Serafim</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="player-class">Escolha sua Classe:</label>
+                    <select id="player-class">
+                        <option value="Guerreiro">Guerreiro</option>
+                        <option value="Mago">Mago</option>
+                        <option value="Clero">Clero</option>
+                        <option value="Arqueiro">Arqueiro</option>
+                        <option value="Paladino">Paladino</option>
+                        <option value="Lutador">Lutador</option>
+                    </select>
+                </div>
+                <button type="submit">Concluir Criação</button>
+            </form>
+            <hr style="border-color: #444; margin: 20px 0;">
+            <p>Ou importe um herói existente:</p>
+            <button id="import-hero-btn">Importar Herói (.json)</button>
+            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div id="main-content">
+            <div class="container" id="world-map-container">
+                <h2 id="world-map-title"></h2>
+                <div id="world-map-locations"></div>
+                <button id="back-to-maps-btn" style="display: none;">Voltar para Regiões</button>
+            </div>
+
+            <div class="container" id="location-content" style="display: none;">
+                 <h2 id="location-title"></h2>
+                 <div id="game-log"></div>
+                 <div id="action-buttons">
+                     </div>
+            </div>
+        </div>
+        <div id="game-ui">
+            <button id="inventory-btn">Inventário</button>
+            <button id="crafting-btn">Criação</button>
+            <button id="stats-btn">Estatísticas</button>
+            <button id="save-game-btn">Salvar Jogo</button>
+        </div>
+    </div>
+
+    <div id="combat-screen" class="screen">
+        <div class="container combat-container">
+            <div class="combat-participant" id="combat-player"></div>
+            <div id="combat-log-container">
+                <h3>Log de Batalha</h3>
+                <div id="combat-log"></div>
+                <div id="combat-actions">
+                    <button id="attack-btn">Atacar</button>
+                </div>
+            </div>
+            <div class="combat-participant" id="combat-monster"></div>
+        </div>
+    </div>
+
+    <div id="inventory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Inventário</h2>
+            <div class="inventory-container">
+                <div id="inventory-grid"></div>
+                <div id="equipment-grid">
+                    <h3>Equipado</h3>
+                    <p><strong>Arma:</strong> <span id="equipped-weapon">Nenhuma</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="crafting-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Área de Criação</h2>
+            <div id="crafting-recipes"></div>
+        </div>
+    </div>
+    <div id="stats-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Estatísticas e Habilidades</h2>
+            <div id="stats-display"></div>
+            <div id="skill-points-display"></div>
+            <hr style="border-color: #444; margin: 20px 0;">
+            <button id="export-save-btn">Exportar Save (.json)</button>
+        </div>
+    </div>
+    <div id="shop-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Loja da Vila</h2>
+            <p>Seu Ouro: <span id="player-gold-shop">0</span> 🪙</p>
+            <div id="shop-items"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+#leaderboard {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 200px;
+    background-color: rgba(30, 30, 30, 0.85);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #f0f0f0;
+    z-index: 1000;
+}
+
+#leaderboard h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ffd700;
+    font-size: 1em;
+}
+
+#leaderboard ol {
+    margin: 0;
+    padding-left: 25px;
+}
+
+#leaderboard li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.screen.active {
+    display: block;
+}
+
+.container {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h1, h2 {
+    color: #e0e0e0;
+    text-shadow: 1px 1px 2px #000;
+}
+
+p.version {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: -10px;
+}
+
+button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px #3700b3;
+}
+
+button:hover:not(:disabled) {
+    background-color: #9042ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px #5a00c8;
+}
+
+button:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px #3700b3;
+}
+
+button:disabled {
+    background-color: #4a4a4a;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#import-hero-btn, #shop-btn {
+    background-color: #3a8d3a;
+    box-shadow: 0 4px #296429;
+}
+#import-hero-btn:hover, #shop-btn:hover {
+    background-color: #4CAF50;
+    box-shadow: 0 6px #357a35;
+}
+#import-hero-btn:active, #shop-btn:active {
+    box-shadow: 0 2px #296429;
+}
+
+#game-ui {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#game-ui button {
+    min-width: 120px;
+}
+
+#character-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#character-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #bbb;
+}
+
+#character-form input,
+#character-form select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+#game-log, #combat-log {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 5px;
+    height: 200px;
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#game-log p, #combat-log p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.log-info { color: #87ceeb; }
+.log-system { color: #f0f0f0; }
+.log-success { color: #98fb98; }
+.log-danger { color: #ff6347; }
+.log-loot { color: #ffd700; }
+.log-event { color: #ba55d3; }
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 60px;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-content {
+    background-color: #1e1e1e;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+#stats-display, #inventory-grid, #crafting-recipes, #equipment-grid {
+    text-align: left;
+    margin-top: 15px;
+}
+
+#stats-display p {
+    margin: 5px 0;
+}
+#stats-display strong {
+    color: #9042ff;
+}
+
+#inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+#inventory-grid .item {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#inventory-grid .item button {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.recipe {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.recipe-title {
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 5px;
+}
+
+.recipe-materials ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-materials li {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-left: 10px;
+}
+
+.missing-material {
+    color: #ff6347;
+}
+.has-material {
+    color: #98fb98;
+}
+
+.combat-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.combat-participant {
+    flex-basis: 30%;
+    background-color: #2b2b2b;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+#combat-log-container {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+}
+
+#combat-log {
+    flex-grow: 1;
+}
+
+.hp-bar, .mp-bar {
+    width: 100%;
+    height: 15px;
+    background-color: #4a4a4a;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.hp-fill {
+    height: 100%;
+    background-color: #ff4d4d;
+    transition: width 0.5s ease-in-out;
+}
+
+.mp-fill {
+    height: 100%;
+    background-color: #4da6ff;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Estilos da Loja */
+#shop-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+.shop-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+.shop-item span {
+    font-weight: bold;
+}
+.shop-item .price {
+    color: #ffd700;
+}
