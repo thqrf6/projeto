@@ -335,7 +335,17 @@ button:disabled {
     transition: width 0.5s ease-in-out;
 }
 
-/* Estilos da Loja */
+#skill-points-display .stat-allocation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+}
+#skill-points-display .stat-allocation button {
+    padding: 2px 8px;
+    font-size: 14px;
+}
+
 #shop-items {
     display: grid;
     grid-template-columns: 1fr;
